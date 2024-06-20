@@ -28,9 +28,6 @@ jobs:
           # Upgrade pip to get bdist_wheel
           pip install --upgrade pip
           pip install setuptools wheel
-          # Instead of letting setup.py install a newer numpy we install it here
-          # using the oldest supported version for ABI compatibility
-          pip install oldest-supported-numpy
       - name: Build C extension
         run: |
           cd python
@@ -68,9 +65,6 @@ jobs:
           set -ex
           ${PYTHON} -m pip install --upgrade pip
           ${PYTHON} -m pip install setuptools wheel
-          # Instead of letting setup.py install a newer numpy we install it here
-          # using the oldest supported version for ABI compatibility
-          ${PYTHON} -m pip install oldest-supported-numpy
       - name: Build C Extension
         env:
           PYTHON: "py -${{ matrix.python }}-${{ matrix.wordsize }}"
