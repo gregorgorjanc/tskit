@@ -1,17 +1,4 @@
-lshmm==0.0.8
-numpy==1.24.1
-pytest==7.1.3
-pytest-cov==4.0.0
-pytest-xdist==2.5.0
-svgwrite==1.4.3
-portion==2.3.0
-xmlunittest==0.5.0
-biopython==1.79
 dendropy==4.5.2
-networkx==3.1
-msgpack==1.0.4
+lshmm==0.0.8
 newick==1.3.2
-tszip==0.2.2
-kastore==0.3.2
-lxml==4.9.2
-numba<=0.59.1 #Pinned directly as 0.60.0 fails
+xmlunittest==0.5.0
