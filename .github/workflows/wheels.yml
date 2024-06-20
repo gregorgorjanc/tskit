@@ -15,7 +15,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python: [3.8, 3.9, "3.10", 3.11]
+        python: [3.9, "3.10", 3.11, 3.12]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -55,7 +55,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        python: [3.8, 3.9, "3.10", 3.11]
+        python: [3.9, "3.10", 3.11, 3.12]
         wordsize: [64]
     steps:
       - name: Checkout
@@ -107,10 +107,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.8
+      - name: Set up Python 3.9
         uses: actions/setup-python@v5
         with:
-          python-version: 3.8
+          python-version: 3.9
 
       - name: Build sdist
         shell: bash
@@ -140,7 +140,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        python: [3.8, 3.9, "3.10", 3.11]
+        python: [3.9, "3.10", 3.11, 3.12]
     steps:
       - name: Download wheels
         uses: actions/download-artifact@v4
@@ -162,7 +162,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        python: [3.8, 3.9, "3.10", 3.11]
+        python: [3.9, "3.10", 3.11, 3.12]
         wordsize: [64]
     steps:
       - name: Download wheels
@@ -186,17 +186,17 @@ jobs:
     needs: ['manylinux']
     strategy:
       matrix:
-        python: [3.8, 3.9, "3.10", 3.11]
+        python: [3.9, "3.10", 3.11, 3.12]
         include:
 
-          - python: 3.8
-            wheel: cp38
           - python: 3.9
             wheel: cp39
           - python: "3.10"
             wheel: cp310
           - python: 3.11
             wheel: cp311
+          - python: 3.12
+            wheel: cp312
     steps:
       - name: Download wheels
         uses: actions/download-artifact@v4
