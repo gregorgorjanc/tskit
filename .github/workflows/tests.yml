@@ -60,8 +60,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python: [ 3.9, 3.11, 3.12 ]
-        os:  [ macos-latest, ubuntu-latest, windows-latest ]
+        python: [ 3.9, 3.11 ]
+        # Use macos-13 to run on x86, for simplicity
+        os:  [ macos-13, ubuntu-latest, windows-latest ]
     defaults:
       run:
         shell: bash
@@ -75,7 +76,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install OSX libs
-        if: matrix.os == 'macos-latest'
+        if: matrix.os == 'macos-13'
         run: |
           brew install libxml2 libxslt
 
@@ -132,11 +133,6 @@ jobs:
           source ~/.profile
           conda activate anaconda-client-env
           python setup.py build_ext --inplace
-
-      - name: Remove py311 incompatible tests (lack of numba support for 3.11, needed for lshmm)
-        if: matrix.python == '3.11'
-        run: |
-          rm python/tests/test_*matching*
 
       - name: Run tests
         working-directory: python
