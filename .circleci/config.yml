@@ -218,6 +218,7 @@ workflows:
   test:
     jobs:
       - build
-      - build-32
+      # Temporarily disable to avoid compiling numpy on 32 bit
+      # - build-32
 
 
