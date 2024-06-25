@@ -1,6 +1,6 @@
 biopython==1.79
 h5py==3.11.0
-kastore==0.3.2
+kastore==0.3.3
 lxml==4.9.2
 msgpack-python==1.0.4
 msprime==1.2.0
