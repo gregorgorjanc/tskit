@@ -183,8 +183,7 @@ jobs:
           command: |
             cd python
             rm -fR build
-            source venv/bin/activate
-            pip install build
+            python -m pip install build
             python -m venv venv
             python -m build --sdist
             python -m twine check dist/*.tar.gz
