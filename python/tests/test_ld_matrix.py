@@ -1034,7 +1034,7 @@ def pi2_unbiased(
         w_Ab = state[1, k]
         w_aB = state[2, k]
         w_ab = n - (w_AB + w_Ab + w_aB)
-        with suppress_division_by_zero_warning():
+        with np.errstate(over="ignore", divide="ignore", invalid="ignore"):
             result[k] = (1 / (n * (n - 1) * (n - 2) * (n - 3))) * (
                 ((w_AB + w_Ab) * (w_aB + w_ab) * (w_AB + w_aB) * (w_Ab + w_ab))
                 - ((w_AB * w_ab) * (w_AB + w_ab + (3 * w_Ab) + (3 * w_aB) - 1))
@@ -1052,7 +1052,7 @@ def dz_unbiased(
         w_Ab = state[1, k]
         w_aB = state[2, k]
         w_ab = n - (w_AB + w_Ab + w_aB)
-        with suppress_division_by_zero_warning():
+        with np.errstate(over="ignore", divide="ignore", invalid="ignore"):
             result[k] = (1 / (n * (n - 1) * (n - 2) * (n - 3))) * (
                 (
                     ((w_AB * w_ab) - (w_Ab * w_aB))
@@ -1074,7 +1074,7 @@ def d2_unbiased(
         w_Ab = state[1, k]
         w_aB = state[2, k]
         w_ab = n - (w_AB + w_Ab + w_aB)
-        with suppress_division_by_zero_warning():
+        with np.errstate(over="ignore", divide="ignore", invalid="ignore"):
             result[k] = (1 / (n * (n - 1) * (n - 2) * (n - 3))) * (
                 ((w_aB**2) * (w_Ab - 1) * w_Ab)
                 + ((w_ab - 1) * w_ab * (w_AB - 1) * w_AB)

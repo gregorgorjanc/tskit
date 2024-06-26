@@ -1254,7 +1254,7 @@ class MetadataTestsMixin:
                 else:
                     md = default_value
                     break
-            assert np.all(np.cast[dtype](md) == x)
+            assert np.all(np.asarray(md, dtype=dtype) == x)
 
     def test_metadata_vector_errors(self):
         table = self.table_class()

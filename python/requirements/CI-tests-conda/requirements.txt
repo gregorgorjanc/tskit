@@ -1,15 +1,3 @@
-biopython==1.79
+msprime==1.3.1
+tszip==0.2.3
 h5py==3.11.0
-kastore==0.3.3
-lxml==4.9.2
-msgpack-python==1.0.4
-msprime==1.2.0
-networkx==3.1
-numba<=0.59.1 #Pinned directly as 0.60.0 fails
-numpy==1.26.4
-portion==2.3.0
-pytest-cov==4.0.0
-pytest-xdist==2.5.0
-pytest # Relaxing pin because pytest is picky about versions
-svgwrite==1.4.3
-tszip==0.2.2
