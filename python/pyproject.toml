@@ -65,8 +65,3 @@ version = {attr = "tskit._version.tskit_version"}
 [tool.pytest.ini_options]
 addopts = "-n 4"
 testpaths = ["tests"]
-
-[tool.flake8]
-max-line-length = 81
-select = ["A", "C", "E", "F", "W", "B", "B950"]
-ignore = ["E203", "E501", "W503", "B305"]
