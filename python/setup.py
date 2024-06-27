@@ -3,20 +3,8 @@ import platform
 
 from setuptools import Extension
 from setuptools import setup
-from setuptools.command.build_ext import build_ext
 
 IS_WINDOWS = platform.system() == "Windows"
-
-
-class local_build_ext(build_ext):
-    def finalize_options(self):
-        build_ext.finalize_options(self)
-        import builtins
-
-        builtins.__NUMPY_SETUP__ = False
-        import numpy
-
-        self.include_dirs.append(numpy.get_include())
 
 
 libdir = "lib"
@@ -53,5 +41,4 @@ _tskit_module = Extension(
 
 setup(
     ext_modules=[_tskit_module],
-    cmdclass={"build_ext": local_build_ext},
 )
