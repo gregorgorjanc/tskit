@@ -1,6 +1,7 @@
 import os
 import platform
 
+import numpy
 from setuptools import Extension
 from setuptools import setup
 
@@ -36,7 +37,7 @@ _tskit_module = Extension(
     extra_compile_args=["-std=c99"],
     libraries=libraries,
     define_macros=defines,
-    include_dirs=["lwt_interface", libdir, kastore_dir],
+    include_dirs=["lwt_interface", libdir, kastore_dir, numpy.get_include()],
 )
 
 setup(
