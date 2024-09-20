@@ -81,7 +81,8 @@ edge
 : The topology of a tree sequence is defined by a set of **edges**. Each
   edge is a tuple `(left, right, parent, child)`, which records a
   parent-child relationship among a pair of nodes on the
-  on the half-open interval of chromosome `[left, right)`.
+  half-open interval of chromosome `[left, right)`.
+  Edges are also often called as branches.
 
 (sec_data_model_definitions_site)=
 
